@@ -158,7 +158,7 @@ get_sidebar();
 
 It was used to add custom functionality to the theme, such as enqueuing scripts and styles, registering navigation menus, and enabling theme features (e.g. thumbnails, widgets).
 
-## Useful link
+## Useful links
 
 - [Theme Development I](https://github.com/MSU-Courses/content-management-systems/tree/main/07_Theme_Development_I)
 - [Theme Development II](https://github.com/MSU-Courses/content-management-systems/tree/main/08_Theme_Development_II)
