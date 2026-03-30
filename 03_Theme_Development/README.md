@@ -99,11 +99,11 @@ add_action('wp_enqueue_scripts', 'usm_force_enqueue_scripts');
 
 Added CSS styles for main elements: header, footer, content, and sidebar.
 
-<img src="03_Theme_Development/screenshots/home-page.png">
+<img src="screenshots/home-page.png">
 
-<img src="03_Theme_Development/screenshots/nav.png">
+<img src="screenshots/nav.png">
 
-<img src="03_Theme_Development/screenshots/the-post.png">
+<img src="screenshots/the-post.png">
 
 ---
 
