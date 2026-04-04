@@ -3,7 +3,7 @@
 class USMNotes
 {
     /**
-     * Инициализация плагина: регистрация хуков и шорткодов.
+     * Plugin initialization: register hooks and shortcodes.
      */
     public function init()
     {
@@ -15,6 +15,9 @@ class USMNotes
         add_shortcode('usm_notes', [$this, 'usm_notes_shortcode']);
     }
 
+    /**
+     * Register the custom post type "Note"
+     */
     function usm_register_note_post_type()
     {
         $labels = array(
@@ -33,6 +36,9 @@ class USMNotes
         register_post_type('note', $args);
     }
 
+    /**
+     * Register the custom taxonomy "Priority Tag"
+     */
     function usm_register_priority_tag_taxonomy()
     {
         $labels = array(
@@ -51,7 +57,7 @@ class USMNotes
     }
 
     /**
-     * Добавление метабокса для пользовательского поля "Дата напоминания"
+     * Add a meta box for the custom field "Due Date"
      */
     function usm_add_note_meta_box()
     {
@@ -66,9 +72,9 @@ class USMNotes
     }
 
     /**
-     * Отображение содержимого метабокса "Дата напоминания"
+     * Render the "Due Date" meta box
      * 
-     * @param WP_Post $post Текущая запись
+     * @param WP_Post $post Current post
      */
     function usm_render_note_due_date_meta_box($post)
     {
@@ -76,12 +82,12 @@ class USMNotes
 
         wp_nonce_field('usm_save_note_meta', 'usm_note_meta_nonce');
 
-        echo '<label for="note_due_date">Дата напоминания:</label>';
+        echo '<label for="note_due_date">Due Date:</label>';
         echo '<input type="date" id="note_due_date" name="note_due_date" value="' . esc_attr($due_date) . '" />';
     }
 
     /**
-     * Сохранение значения метаполя "Дата напоминания"
+     * Save the value of the "Due Date" meta field
      */
     function usm_save_note_meta($post_id, $post)
     {
@@ -112,13 +118,13 @@ class USMNotes
         $today = date('Y-m-d');
 
         if ($due_date < $today) {
-            set_transient('usm_note_error_' . $post_id, 'Ошибка: Дата напоминания не может быть в прошлом.');
+            set_transient('usm_note_error_' . $post_id, 'Error: Due Date cannot be in the past.');
             return;
         }
     }
 
     /**
-     * Отображение даты напоминания в контенте записи типа "Заметка"
+     * Display the due date in the content of a "Note" post
      */
     function usm_display_note_due_date($content)
     {
@@ -131,6 +137,9 @@ class USMNotes
         return $content;
     }
 
+    /**
+     * Shortcode to display notes with optional filtering by priority and due date
+     */
     public function usm_notes_shortcode($atts)
     {
         $atts = shortcode_atts(array(
@@ -138,7 +147,7 @@ class USMNotes
             'before_date' => '',
         ), $atts);
 
-        // 2. Базовые аргументы запроса
+        // Base query arguments
         $args = array(
             'post_type'      => 'note',
             'post_status'    => 'publish',

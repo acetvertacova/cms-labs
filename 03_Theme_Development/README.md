@@ -99,11 +99,11 @@ add_action('wp_enqueue_scripts', 'usm_force_enqueue_scripts');
 
 Added CSS styles for main elements: header, footer, content, and sidebar.
 
-<img src = "03_Theme_Development/screenshots/home-page.png">
+<img src="screenshots/home-page.png">
 
-<img src = "03_Theme_Development/screenshots/nav.png">
+<img src="screenshots/nav.png">
 
-<img src = "03_Theme_Development/screenshots/the-post.png">
+<img src="screenshots/the-post.png">
 
 ---
 
@@ -158,7 +158,7 @@ get_sidebar();
 
 It was used to add custom functionality to the theme, such as enqueuing scripts and styles, registering navigation menus, and enabling theme features (e.g. thumbnails, widgets).
 
-## Useful link
+## Useful links
 
 - [Theme Development I](https://github.com/MSU-Courses/content-management-systems/tree/main/07_Theme_Development_I)
 - [Theme Development II](https://github.com/MSU-Courses/content-management-systems/tree/main/08_Theme_Development_II)
