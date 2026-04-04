@@ -4,7 +4,7 @@
 
 ---
 
-## 🎯 Purpose of the Work
+## Purpose of the Work
 Learn how to create a custom WordPress theme, understand its minimal structure, and learn how templates work.
 
 ---
